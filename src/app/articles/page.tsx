@@ -1,10 +1,9 @@
-import { strapi } from "@strapi/client";
 import qs from "qs";
 import Image from "next/image";
 import Link from "next/link";
 
 async function getArticles() {
-  const baseUrl = process.env.STRAPI_BASE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
   const path = "/api/articles";
 
   const url = new URL(path, baseUrl);

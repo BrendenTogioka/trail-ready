@@ -2,11 +2,6 @@
 
 import Markdown from "markdown-to-jsx";
 
-import {
-  BlocksRenderer,
-  type BlocksContent,
-} from "@strapi/blocks-react-renderer";
-
 interface Content {
   body: string;
 }
@@ -18,7 +13,7 @@ export default function BlockRendererClient({
 }) {
   if (!content) return null;
   const articleContent: Content = content[0];
-  console.log(content[0]);
+  // console.log(content[0]);
   const markdown: string = articleContent.body;
   return (
     <div className="">

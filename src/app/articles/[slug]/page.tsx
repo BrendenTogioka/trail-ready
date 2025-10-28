@@ -1,8 +1,5 @@
-import { strapi } from "@strapi/client";
 import qs from "qs";
 import Image from "next/image";
-import { type BlocksContent } from "@strapi/blocks-react-renderer";
-
 import BlockRendererClient from "../../components/BlockRendererClient";
 
 interface Content {
@@ -10,7 +7,7 @@ interface Content {
 }
 
 async function getArticle({ slug }: { slug: string }) {
-  const baseUrl = process.env.STRAPI_BASE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 
   const path = `/api/articles`;
 
