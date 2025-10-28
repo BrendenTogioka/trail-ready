@@ -23,9 +23,19 @@ async function getArticles() {
 
   const data = await res.json();
   const articles = data.data;
-  console.log(articles);
+  // console.log(articles);
 
   return articles;
+}
+
+interface Article {
+  id: number;
+  title: string;
+  slug: string;
+  cover: {
+    alternativeText: string;
+    url: string;
+  };
 }
 
 export default async function About() {
@@ -35,11 +45,11 @@ export default async function About() {
     <div>
       <h1>Our Team</h1>
       <div className="relative grid sm:grid-cols-3 gap-6">
-        {articles.map((article, i) => (
+        {articles.map((article: Article) => (
           <Link
             href={`/articles/${article.slug}`}
             className="relative  h-[40vh] shadow-md rounded-md flex justify-center items-center"
-            key={i}
+            key={article.slug}
           >
             <h2 className="relative z-10 text-slate-100 text-xl font-semibold max-w-[80%] text-center capitalize">
               {article.title}
