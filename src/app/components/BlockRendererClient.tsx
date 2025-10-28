@@ -7,14 +7,19 @@ import {
   type BlocksContent,
 } from "@strapi/blocks-react-renderer";
 
+interface Content {
+  body: string;
+}
+
 export default function BlockRendererClient({
   content,
 }: {
-  readonly content: BlocksContent;
+  readonly content: Content[];
 }) {
   if (!content) return null;
+  const articleContent: Content = content[0];
   console.log(content[0]);
-  const markdown: string = content[0].body;
+  const markdown: string = articleContent.body;
   return (
     <div className="">
       {/* <div className="blocks">

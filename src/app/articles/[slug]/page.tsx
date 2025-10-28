@@ -5,6 +5,10 @@ import { type BlocksContent } from "@strapi/blocks-react-renderer";
 
 import BlockRendererClient from "../../components/BlockRendererClient";
 
+interface Content {
+  body: string;
+}
+
 async function getArticle({ slug }: { slug: string }) {
   const baseUrl = process.env.STRAPI_BASE_URL;
 
@@ -48,7 +52,7 @@ export default async function ArticlePage({
 
   const article = await getArticle({ slug: slug });
 
-  const content: BlocksContent = article.blocks;
+  const content: Content[] = article.blocks;
   // console.log(article);
 
   return (
