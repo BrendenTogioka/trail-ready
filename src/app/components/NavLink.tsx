@@ -2,7 +2,6 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import path from "path";
 
 function cn(...inputs: (string | undefined | null | false)[]) {
   return inputs.filter(Boolean).join(" ");

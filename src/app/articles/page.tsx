@@ -22,7 +22,6 @@ async function getArticles() {
 
   const data = await res.json();
   const articles = data.data;
-  // console.log(articles);
 
   return articles;
 }

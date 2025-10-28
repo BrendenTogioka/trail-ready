@@ -19,7 +19,7 @@ async function getArticle({ slug }: { slug: string }) {
         $eq: slug,
       },
     },
-    // populate: ["cover", "blocks"],
+
     populate: {
       blocks: {
         populate: "*", // Populates all relations and media fields one level deep within components
@@ -50,7 +50,6 @@ export default async function ArticlePage({
   const article = await getArticle({ slug: slug });
 
   const content: Content[] = article.blocks;
-  // console.log(article);
 
   return (
     <div>
