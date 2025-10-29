@@ -1,24 +1,20 @@
 "use client";
-
-import Markdown from "markdown-to-jsx";
-
-interface Content {
-  body: string;
-}
+import {
+  BlocksRenderer,
+  type BlocksContent,
+} from "@strapi/blocks-react-renderer";
 
 export default function BlockRendererClient({
   content,
 }: {
-  readonly content: Content[];
+  readonly content: BlocksContent;
 }) {
   if (!content) return null;
-  const articleContent: Content = content[0];
 
-  const markdown: string = articleContent.body;
   return (
     <div className="">
-      <div className="flex flex-col gap-7">
-        <Markdown>{markdown}</Markdown>
+      <div className="flex flex-col gap-3">
+        <BlocksRenderer content={content} />
       </div>
     </div>
   );

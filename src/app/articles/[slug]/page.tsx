@@ -1,10 +1,7 @@
 import qs from "qs";
 import Image from "next/image";
+import { type BlocksContent } from "@strapi/blocks-react-renderer";
 import BlockRendererClient from "../../components/BlockRendererClient";
-
-interface Content {
-  body: string;
-}
 
 async function getArticle({ slug }: { slug: string }) {
   const baseUrl = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
@@ -49,7 +46,8 @@ export default async function ArticlePage({
 
   const article = await getArticle({ slug: slug });
 
-  const content: Content[] = article.blocks;
+  const content: BlocksContent = article.content;
+  // console.log(article);
 
   return (
     <div>
@@ -68,7 +66,7 @@ export default async function ArticlePage({
               height={800}
             />
           </div>
-          {content && <BlockRendererClient content={content} />}
+          <BlockRendererClient content={content} />
         </div>
       </div>
     </div>
