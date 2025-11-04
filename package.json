@@ -1,7 +1,6 @@
 {
   "name": "trail-ready",
   "version": "1.0.1",
-  // "private": true,
   "engines": {
     "node": "22.14.0",
     "npm": "11.6.1"
